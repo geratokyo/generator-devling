@@ -1,8 +1,8 @@
-#__StrikeJS Template Generator__
+#__Devling Template Generator__
 
 ##Getting started
 
-install Yeoman and generator-strikeJS globally
+install Yeoman and generator-devling globally
 
 ```
 npm install yo -g
@@ -31,7 +31,7 @@ Where {AppName} is the name of the application
 --src-dir {directory}   // in case the src files will 
                         // need to sit on a different 
                         // directory specifies the directory
-                        
+
 --exclude-public    // flag if the public folder 
                     // should be excluded when 
                     // generating the project
