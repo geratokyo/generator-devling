@@ -1,6 +1,6 @@
 
 module.exports = {
-    entry: ["./src/index.tsx"],
+    entry: ["./<%= srcDir %>src/index.tsx"],
     mode:"production",
     output: {
         filename: "bundle.js",

@@ -1,6 +1,6 @@
 var webpack = require("webpack");
 module.exports = {
-    entry: ["./src/index.tsx"],
+    entry: ["./<%= srcDir %>src/index.tsx"],
     mode: "development",
     output: {
         filename: "bundle.js",

@@ -66,7 +66,7 @@ module.exports = class extends Generator {
         }else{ 
             this.fs.copyTpl(
                 this.templatePath('storybook/**'),
-                this.destinationPath(srcDir +'.storybook/'),
+                this.destinationPath('.storybook/'),
                 {},
                 {},
                 {
@@ -111,8 +111,9 @@ module.exports = class extends Generator {
 
         this.fs.copyTpl(
             this.templatePath('webpack/**'),
-            this.destinationPath(srcDir + 'webpack/'),
+            this.destinationPath('webpack/'),
             {
+                srcDir:srcDir,
                 appname: this.options.appname,
                 globOptions: {
                     dot: true,
@@ -123,27 +124,29 @@ module.exports = class extends Generator {
 
         this.fs.copy(
             this.templatePath('s.gitignore'),
-            this.destinationPath(srcDir + '.gitignore')
+            this.destinationPath('.gitignore')
         );
 
-        this.fs.copy(
+        this.fs.copyTpl(
             this.templatePath('config.rb'),
-            this.destinationPath(srcDir + 'config.rb')
+            this.destinationPath('config.rb'),
+            {srcDir:srcDir}
         );
 
         this.fs.copy(
             this.templatePath('README.md'),
-            this.destinationPath(srcDir + 'README.md')
+            this.destinationPath('README.md')
         );
 
-        this.fs.copy(
+        this.fs.copyTpl(
             this.templatePath('tsconfig.json'),
-            this.destinationPath(srcDir + 'tsconfig.json')
+            this.destinationPath('tsconfig.json'),
+            {srcDir:srcDir}
         );
 
         this.fs.copyTpl(
             this.templatePath('package.json'),
-            this.destinationPath(srcDir + 'package.json'),
+            this.destinationPath('package.json'),
             { 
                 appname: this.options.appname,
                 isStory:this.config.get("isStory")
