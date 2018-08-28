@@ -87,3 +87,11 @@ Where {PrName} is the name of the functional component
                         // under under components for files to be generated
                         // default value "ui"
 ```
+
+##Model Script
+To create a model scafolding template run the following 
+
+```
+yo devling:model {ModelName}
+```
+Where {ModelName} is the name of the model
