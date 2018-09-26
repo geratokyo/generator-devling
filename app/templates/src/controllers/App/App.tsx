@@ -39,9 +39,8 @@ class App extends React.Component<AppProps, inAppState>{
     render() {
         let state = this.state,
             props = this.props;
-
         return (
-            <div className="app">
+            <div className={`app`}>
                 <Router>
                     <Switch>
                         <Route exact path="/" component={HomePage} />
