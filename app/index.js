@@ -133,6 +133,12 @@ module.exports = class extends Generator {
             {srcDir:srcDir}
         );
 
+        this.fs.copyTpl(
+            this.templatePath('fuse.js'),
+            this.destinationPath('fuse.js'),
+            {srcDir:srcDir}
+        );
+
         this.fs.copy(
             this.templatePath('README.md'),
             this.destinationPath('README.md')
