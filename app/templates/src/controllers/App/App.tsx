@@ -14,23 +14,22 @@ import {
 } from 'react-router-dom'
 
 import HomePage from '../../pages/Homepage/Homepage';
-import { DataService } from '../../services/DataService';
+import DATA_SERVICE from '../../services/DataService';
 
 export const STATE_KEY = 'app';
 
 class App extends React.Component<AppProps, inAppState>{
-    DS:DataService; 
     constructor(props:AppProps) {
         super(props);
         this.state = inAppInitialState;
-        this.DS = new DataService(); 
     }
 
     componentDidMount(){
-        if(this.DS.isDataLoaded){
-            this.props.loadData(this.DS.getData()); 
+        if(DATA_SERVICE.isDataLoaded){
+            
+            this.props.loadData(DATA_SERVICE.getData()); 
         }else{
-            this.DS.load().then((e)=>{
+            DATA_SERVICE.load().then((e)=>{
                 this.props.loadData(e); 
             })
         }
