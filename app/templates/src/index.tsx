@@ -13,6 +13,7 @@ import App from './controllers/App/App';
 import { RootReducer } from './_reducers';
 import {RES_URL} from "./config";
 import {IS_MOBILE,IS_EMBED} from './config'
+import "./main.scss";
 
 const enhancers = compose(
     (window as any).__REDUX_DEVTOOLS_EXTENSION__ && (window as any).__REDUX_DEVTOOLS_EXTENSION__()

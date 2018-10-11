@@ -32,7 +32,7 @@ export class HomePage extends React.Component<HomePageProps, HomePageState>{
     render(){
         let cls = this.props.className || "";
         return (
-            <div className={"home-page-page " + cls}>
+            <div className={"home-page " + cls}>
                 <div className="row">
                     <div className="col s12 m12 l12">
                         <h1>Devling Generator</h1>
