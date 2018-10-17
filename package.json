@@ -1,6 +1,6 @@
 {
   "name": "generator-devling",
-  "version": "0.0.7",
+  "version": "0.1.0",
   "description": "Yo generator",
   "main": "index.js",
   "scripts": {
