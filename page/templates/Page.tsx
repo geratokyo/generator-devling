@@ -6,10 +6,9 @@ import { bindActionCreators, Dispatch } from 'redux';
   
 import { IStoreState } from '../../_reducers';
 import { iActionType, Translation } from '../../models/models';
-import { RouteComponentProps } from 'react-router';
 
 
-export interface <%= uCamelCName %>Props extends ReactRedux.DispatchProp<any>, RouteComponentProps<any>{
+export interface <%= uCamelCName %>Props extends ReactRedux.DispatchProp<any>{
     className?:string;
     locale:Translation;
 }

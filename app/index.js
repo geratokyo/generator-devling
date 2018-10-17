@@ -67,8 +67,9 @@ module.exports = class extends Generator {
             this.fs.copyTpl(
                 this.templatePath('storybook/**'),
                 this.destinationPath('.storybook/'),
+                {},
+                {},
                 {
-                    srcDir:srcDir,
                     globOptions: {
                         dot: true,
                         ignore: ignoreFiles
@@ -129,12 +130,6 @@ module.exports = class extends Generator {
         this.fs.copyTpl(
             this.templatePath('config.rb'),
             this.destinationPath('config.rb'),
-            {srcDir:srcDir}
-        );
-
-        this.fs.copyTpl(
-            this.templatePath('fuse.js'),
-            this.destinationPath('fuse.js'),
             {srcDir:srcDir}
         );
 

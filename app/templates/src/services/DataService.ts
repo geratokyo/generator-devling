@@ -1,7 +1,8 @@
 import {Translation} from '../models/models';
-import fb from './Firebase'
-import * as Promise from 'bluebird'; 
+import {FIREBASE_CONF} from '../config';
 
+declare var jQuery;
+declare var firebase;
 
 export class DataService{
     app:any;
@@ -12,35 +13,34 @@ export class DataService{
 
     data:any;
     isDataLoaded:boolean;
+
     constructor(){
         let w: any = window;
         this.locale = w.__LOCALE__; 
+        this.def = jQuery.Deferred();
 
+        var config : any = FIREBASE_CONF;
+        this.app = firebase.initializeApp(config);
+        this.database = this.app.database();
         this.isDataLoaded = false;
-        
-        this.database = fb.database(); 
     }
+
 
     load(){
-        return new Promise((res, rej)=>{
+        this.database.ref("/"+this.locale).on("value",
+            (e: any)=>{
+                this.data = e.val() as any;
 
-            this.database.ref("/"+this.locale).on("value",
-                (e: any)=>{
-                    this.data = e.val() as any;
-    
-    
-                    this.isDataLoaded = true;
-                    res(this.data);
-                }
-            )
-        })
+                this.isDataLoaded = true;
+                this.def.resolve(this.data); 
+            }
+        )
+        return this.def.promise();
     }
-
 
     getByKey = (key:string)=>{
         return this.data[key];
     }
-
 
     getNavBar = ()=>{
         return this.data.navBar; 
@@ -55,7 +55,3 @@ export class DataService{
     }
 
 }
-
-const DATA_SERVICE = new DataService(); 
-
-export default DATA_SERVICE;

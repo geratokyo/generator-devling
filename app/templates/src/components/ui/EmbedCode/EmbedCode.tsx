@@ -4,7 +4,7 @@ import { Button } from '../Button/Button';
 import { RES_URL } from '../../../config';
 import VerticalAligner from '../VerticalAligner/VerticalAligner';
 
-
+declare var jQuery;
 export interface EmbedCodeProps{
     embedded?:string;
     locale:Translation;
@@ -21,7 +21,7 @@ export class EmbedCode extends React.Component<EmbedCodeProps, EmbedCodeState>{
     }
 
     onCopyToClipboard(evt:any){
-        let a:any = document.getElementsByClassName('.embed-textarea')[0];
+        let a:any = jQuery('.embed-textarea').get(0);
 		a.select();
 		try{
 			document.execCommand && document.execCommand('copy');
@@ -40,7 +40,7 @@ export class EmbedCode extends React.Component<EmbedCodeProps, EmbedCodeState>{
         url += specificHash;
         let campaignName = props.locale.campaignName.split(" ").join("-").toLocaleLowerCase();
         let a: string = [
-            '<div class="test-app" style="width:100%;height:',props.height,'px;margin:0 auto;background:#fff;position:relative;">',
+            '<div class="<%= appname %>" style="width:100%;height:',props.height,'px;margin:0 auto;background:#fff;position:relative;">',
                 '<iframe data-url="',url,'" src="',url,'" style="position:absolute;top:0;left:0;width:100%;height:100%; border:1px solid #ccc;"></iframe></div>',
                 '<div class="meframe"></div>',
                 '<br/>',

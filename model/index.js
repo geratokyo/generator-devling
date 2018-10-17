@@ -17,7 +17,7 @@ module.exports = class extends Generator {
     this.kebabCName = _.kebabCase(this.options.uiname);
     this.uSnakeCName = _.snakeCase(this.options.uiname).toUpperCase();
 
-    this.folder = this.options["folder"] || "model"; 
+    this.folder = this.options["folder"] || "ui"; 
   }
 
   initializing(){
@@ -43,7 +43,7 @@ module.exports = class extends Generator {
 
   _copyFiles(){
     let srcDir = this.config.get("srcDir"); ; 
-    let dir = srcDir + 'src/models/';//+this.folder+'/'+ this.uCamelCName+'/';
+    let dir = srcDir + 'src/components/'+this.folder+'/'+ this.uCamelCName+'/';
     
 
     let tempStr = {

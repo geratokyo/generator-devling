@@ -10,3 +10,15 @@ import { linkTo } from "@storybook/addon-links";
 import { Welcome } from "@storybook/react/demo";
 
 import { <%= uCamelCName %> } from "./<%= uCamelCName %>";
+
+storiesOf("Welcome", module).add("to Storybook", () => (
+  <Welcome showApp={linkTo("<%= uCamelCName %>")} />
+));
+
+storiesOf("<%= uCamelCName %>", module)
+  .add("with text", () => (
+    <<%= uCamelCName %> onClick={action("clicked")}>Hello <%= uCamelCName %></<%= uCamelCName %>>
+  ))
+  .add("with some emoji", () => (
+    <<%= uCamelCName %> onClick={action("clicked")}>😀 😎 👍 💯</<%= uCamelCName %>>
+  ));

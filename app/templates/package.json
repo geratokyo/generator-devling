@@ -5,16 +5,13 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "node fuse watch",
-    "publish": "node fuse publish",
-    "webpack-watch": "NODE_ENV=development webpack -w --config webpack/dev.config.js",
-    "webpack-publish": "NODE_ENV=production webpack -p --config webpack/prod.config.js"
+    "watch": "NODE_ENV=development webpack -w --config webpack/dev.config.js",
+    "publish": "NODE_ENV=production webpack -p --config webpack/prod.config.js"
     <% if(isStory){ %> ,"storybook": "start-storybook -p 6006" <% } %>
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.18.0",
     "bluebird": "^3.5.1",
     "lodash": "^4.17.10",
     "react": "^16.4.1",
@@ -31,7 +28,6 @@
     "@storybook/addon-links": "^4.0.0-alpha.16",
     "@storybook/addons": "^4.0.0-alpha.16",
     "@storybook/react": "^4.0.0-alpha.16",
-    "@storybook/addon-knobs": "^3.4.11",
     "@types/storybook__react": "^3.0.9",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
@@ -45,16 +41,16 @@
     "@types/lodash": "^4.14.115",
     "@types/node": "^10.5.5",
     "@types/react": "^16.4.6",
+    "@types/axios": "^0.14.0",
     "@types/react-dom": "^16.0.6",
     "@types/react-redux": "^6.0.5",
     "@types/react-router-dom": "^4.3.0",
-    "@types/webpack-env": "^1.13.6",
-    "fuse-box": "^3.5.0",
+    "@types/redux": "^3.6.0",
+    "awesome-typescript-loader": "^5.2.0",
     "node-sass": "^4.9.3",
-    "fuse-box-typechecker": "^2.10.0",
-    "source-map": "^0.7.3",
+    "source-map-loader": "^0.2.3",
     "typescript": "^2.9.2",
-    "uglify-es": "^3.3.9",
-    "uglify-js": "^3.4.9"
+    "webpack": "^4.16.1",
+    "webpack-cli": "^3.0.8"
   }
 }

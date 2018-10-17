@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Translation } from '../../../models/models';
 import { SHOW_INFO_DIALOG,SHOW_EMBED_DIALOG } from '../Dialog/Utils';
 
+declare var jQuery;
 
 
 export interface SocialButtonsProps{
@@ -23,21 +24,8 @@ export class SocialButtons extends React.Component<SocialButtonsProps, SocialBut
         }
     }
 
-    getTwitterText = ()=>{
-        var metas = document.getElementsByTagName('meta'); 
-
-        for (var i=0; i<metas.length; i++) { 
-           if (metas[i].getAttribute("name") == "twitter:description") { 
-              return metas[i].getAttribute("content"); 
-           } 
-        } 
-     
-         return "";
-    }
-
-
     componentDidMount(){
-        let tw = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(this.getTwitterText()), 
+        let tw = "https://twitter.com/intent/tweet?text=" + encodeURIComponent(jQuery('meta[name="twitter:description"]').attr('content')), 
             fb = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL);
         
         this.setState({twitterLink:tw, facebookLink:fb});
