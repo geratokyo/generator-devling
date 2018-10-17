@@ -17,7 +17,7 @@ module.exports = class extends Generator {
     this.kebabCName = _.kebabCase(this.options.uiname);
     this.uSnakeCName = _.snakeCase(this.options.uiname).toUpperCase();
 
-    this.folder = this.options["folder"] || "model"; 
+    this.folder = this.options["folder"] || "hoc"; 
   }
 
   initializing(){
@@ -42,8 +42,9 @@ module.exports = class extends Generator {
   }
 
   _copyFiles(){
-    let srcDir = this.config.get("srcDir"); ; 
-    let dir = srcDir + 'src/models/';//+this.folder+'/'+ this.uCamelCName+'/';
+    let srcDir = this.config.get("srcDir"); 
+    let isStory = this.config.get("isStory"); 
+    let dir = srcDir + 'src/components/'+this.folder+'/'+ this.uCamelCName+'/';
     
 
     let tempStr = {
@@ -55,11 +56,24 @@ module.exports = class extends Generator {
     }
 
     this.fs.copyTpl(
-      this.templatePath('Model.ts'),
-      this.destinationPath(dir + this.uCamelCName +'.ts'),
+      this.templatePath('Hoc.tsx'),
+      this.destinationPath(dir + this.uCamelCName +'.tsx'),
       tempStr
     );
 
 
+    this.fs.copyTpl(
+      this.templatePath('_hoc.scss'),
+      this.destinationPath(dir + '_' + this.lowerCName + '.scss'),
+      tempStr
+    );
+
+    if(isStory){
+      this.fs.copyTpl(
+        this.templatePath('Hoc.stories.tsx'),
+        this.destinationPath(dir + this.uCamelCName +'.stories.tsx'),
+        tempStr
+      );
+    }
   }
 };

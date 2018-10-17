@@ -88,6 +88,21 @@ Where {PrName} is the name of the functional component
                         // default value "ui"
 ```
 
+##Higher Order Component
+To create a higher order component run the following 
+
+```
+yo devling:hoc {PrName}
+```
+Where {PrName} is the name of the functional component
+
+###Flags
+```
+--folder {folderName}   // specify a folder name 
+                        // under under components for files to be generated
+                        // default value "ui"
+```
+
 ##Model Script
 To create a model scafolding template run the following 
 

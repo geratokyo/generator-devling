@@ -67,9 +67,8 @@ module.exports = class extends Generator {
             this.fs.copyTpl(
                 this.templatePath('storybook/**'),
                 this.destinationPath('.storybook/'),
-                {},
-                {},
                 {
+                    srcDir:srcDir,
                     globOptions: {
                         dot: true,
                         ignore: ignoreFiles
